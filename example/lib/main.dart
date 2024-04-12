@@ -198,6 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onPosition(Position position) {
     final strEvent = 'lat: ${position.latitude}, lng: ${position.longitude}';
+    debugPrint(position.toString());
     events.add(LocationEventItem(LocationEventType.position, strEvent));
     setState(() {});
   }
