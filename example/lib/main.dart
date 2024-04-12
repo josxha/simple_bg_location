@@ -36,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<LocationEventItem> events = [];
 
   final scrollController = ScrollController();
+
   void _scrollToBottom() {
     scrollController.animateTo(scrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
@@ -75,11 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: const Text('Simple Background Location Demo'),
-      ),
+      appBar: AppBar(title: const Text('Simple Background Location Demo')),
       body: ListView.separated(
         controller: scrollController,
         itemCount: events.length,
@@ -124,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
             : null,
         tooltip: isTracking ? 'Stop' : 'Start',
         child: Icon(isTracking ? Icons.stop : Icons.play_arrow),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 
